@@ -52,14 +52,17 @@ public class ActualitzarNota {
         // Lee todo el archivo y si encuentra el alumno, agarra lo último que se encuentra en esa fila, es decir, la nota y la cambia
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
-
+            Boolean encontrado = false;
             while ((line = br.readLine()) != null) {
                 if (line.contains(alumne)) {
-                    line = line.substring(0, line.length() - 1) + novaNota; // Cambiar la última posición por la nueva nota
+                    line = line.substring(0, line.length() - 1) + novaNota; 
+                    encontrado = true;
                 }
                 sb.append(line).append(System.lineSeparator());
             }
-
+            if(!encontrado) {
+                System.out.println("Error: El alumno con nombre " + alumne + " no se encontró.");
+            }
         } catch (IOException e) {
             System.out.println("Error leyendo el archivo: " + e.getMessage());
             return;
