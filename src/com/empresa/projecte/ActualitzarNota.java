@@ -90,6 +90,7 @@ public class ActualitzarNota {
 
             System.out.print("Introduce la nueva nota, solo se acepta el 0 al 9 (No me seas burro): ");
             char novaNota = scanner.nextLine().charAt(0); 
+            System.out.print("Buscando Archivo de notas...");
 
             // Llamada a encontrar el archivo
             String result = findFile(directory, fileName);

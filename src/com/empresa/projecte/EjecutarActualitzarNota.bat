@@ -1,3 +1,4 @@
 @echo off
-java -jar "C:\Users\Rosa\Desktop\Practica2\src\com\empresa\projecte\ActualitzarNota.jar"
+cd /d "%~dp0"
+java -jar ActualitzarNota.jar
 pause
